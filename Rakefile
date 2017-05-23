@@ -7,6 +7,14 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = 'spec/*/*_spec.rb'
 end
 
+
+desc "Test ansible playbook syntax"
+task :lint do
+  sh %{ansible-playbook --inventory-file tests/hosts --syntax-check tests/test.yml}
+end
+task :default => :lint
+
+
 desc "vagrant up --no-provision"
 task :up do
   if ENV['ANSIBLE_UTIL_VAGRANT_PROVIDER']
@@ -28,12 +36,6 @@ desc "vagrant provision"
 task :provision => :up do
   sh %{vagrant provision}
 end
-
-desc "Test ansible playbook syntax"
-task :lint do
-  sh %{ansible-playbook --inventory-file tests/hosts --syntax-check tests/test.yml}
-end
-task :default => :lint
 
 desc "Run test suite with Vagrant"
 task :suite => [

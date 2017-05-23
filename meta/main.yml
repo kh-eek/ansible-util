@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Sida Say
+  description: Role for base configuration of Ansible roles developed at Silpion.
+  company: https://www.kheek.com
+  issue_tracker_url: https://github.com/kh-eek/ansible-util/issues
+  license: Apache 2
+  min_ansible_version: 2.0.0.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+  - name: Fedora
+    versions:
+    - 20
+  - name: Ubuntu
+    versions:
+    - trusty
+  - name: Debian
+    versions:
+    - wheezy
+  - name: Archlinux
+    versions:
+    - all
+  galaxy_tags:
+  - system
+dependencies:
+  - src: "https://github.com/kh-eek/ansible-lib"
+    name: ansible-lib

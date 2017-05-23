@@ -1,0 +1,3 @@
+---
+- src: https://github.com/kh-eek/ansible-lib
+  name: ansible-lib
